@@ -11,8 +11,8 @@ import AppError from "./utils/appError.mjs";
 
 const app = express();
 app.disable("x-powered-by");
-app.use(express.json({ limit: "10kb" }));
-app.use(express.urlencoded({ extended: true, limit: "10kb" }));
+app.use(express.json({ limit: "20kb" }));
+app.use(express.urlencoded({ extended: true, limit: "20kb" }));
 app.use(cors());
 
 app.get("/", (req, res) => {
@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/books", bookRouter);
 app.use("/api/v1/authors", authorRouter);
-
 app.use("/api/v1/api-docs", swagger.serve, swagger.setup(docs));
+
 //@ ERROR HANDLING
 app.all("*", (req, res, next) => {
   next(new AppError(`ERROR: Can't find ${req.originalUrl}`, 404));

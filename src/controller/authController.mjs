@@ -1,6 +1,4 @@
-// import { promisify } from "node:util";
 import bcrypt from "bcrypt";
-import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { findUser, saveUser } from "../db/db.mjs";
 import User from "../models/userModel.mjs";
@@ -8,10 +6,8 @@ import response from "../templates/successRes.mjs";
 import AppError from "../utils/appError.mjs";
 import catchAsync from "../utils/catchAsync.mjs";
 import msgs from "../utils/msgs.mjs";
-dotenv.config({ path: "./.env" });
 
 const createToken = function (user) {
-  // const token = signToken(user._id);
   const { _id } = user;
   const token = jwt.sign({ _id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
