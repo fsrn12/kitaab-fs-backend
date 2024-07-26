@@ -1,16 +1,13 @@
 import cors from "cors";
-import dotenv from "dotenv";
-import express, { json } from "express";
+import express from "express";
 import swagger from "swagger-ui-express";
 import docs from "../config/swaggerOptions.json" assert { type: "json" };
 import errorHandler from "./controller/errorController.mjs";
-import { connectDB, disconnect } from "./db/db.mjs";
+import { connectDB } from "./db/db.mjs";
 import authorRouter from "./routes/authorRouter.mjs";
 import bookRouter from "./routes/bookRouter.mjs";
 import userRouter from "./routes/userRouter.mjs";
 import AppError from "./utils/appError.mjs";
-
-dotenv.config({ path: "./.env" });
 
 const app = express();
 app.disable("x-powered-by");
