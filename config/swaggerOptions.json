@@ -1,0 +1,628 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "BookApp API Documentation",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Faisal Rehman",
+      "email": "m.fslr14@gmail.com",
+      "url": "http://localhost:3001/api/v1/api-docs"
+    }
+  },
+  "servers": [
+    {
+      "description": "Local Server",
+      "url": "http://localhost:3001/api/v1"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "bearerFormat": "JWT",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/users/signup": {
+      "post": {
+        "tags": ["Users"],
+        "description": "User Signup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "default": "John"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "default": "Doe"
+                  },
+                  "address": {
+                    "type": "string",
+                    "default": "112 Park Lane"
+                  },
+                  "city": {
+                    "type": "string",
+                    "default": "London"
+                  },
+                  "postcode": {
+                    "type": "string",
+                    "default": "NW3 2TW"
+                  },
+                  "email": {
+                    "type": "string",
+                    "default": "example@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "Password-1234"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": ["Users"],
+        "description": "User Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "default": "example@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "Password-1234"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/books": {
+      "post": {
+        "tags": ["Books"],
+        "description": "Post a Book",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "default": "The Hitchhiker's Guide to the Galaxy"
+                  },
+                  "author": {
+                    "type": "string",
+                    "default": "Douglas Adams"
+                  },
+                  "ISBN": {
+                    "type": "string",
+                    "default": "9781529034523"
+                  },
+                  "price": {
+                    "type": "number",
+                    "default": 9.99
+                  },
+                  "publisher": {
+                    "type": "string",
+                    "default": "Pan Macmillan"
+                  },
+                  "yearPublished": {
+                    "type": "string",
+                    "default": "04-07-2024"
+                  },
+                  "numberOfPages": {
+                    "type": "number",
+                    "default": 224
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Books"],
+        "description": "Get Books",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/books/{bookId}": {
+      "get": {
+        "tags": ["Books"],
+        "description": "Get a book by Id",
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "description": "The book Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Books"],
+        "description": "Update a book by Id",
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "description": "The book Id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "default": "The Hitchhiker's Guide to the Galaxy: 42nd Anniversary Edition"
+                  },
+                  "author": {
+                    "type": "string",
+                    "default": "Douglas Adams"
+                  },
+                  "ISBN": {
+                    "type": "string",
+                    "default": "9781529034523"
+                  },
+                  "price": {
+                    "type": "number",
+                    "default": 8.99
+                  },
+                  "publisher": {
+                    "type": "string",
+                    "default": "Pan Macmillan"
+                  },
+                  "yearPublished": {
+                    "type": "string",
+                    "default": "07-16-2024"
+                  },
+                  "numberOfPages": {
+                    "type": "number",
+                    "default": 224
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Books"],
+        "description": "Delete a book by Id",
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "description": "The book Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/authors": {
+      "post": {
+        "tags": ["Authors"],
+        "description": "Post an Author",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "default": "Marvelous Moody"
+                  },
+                  "books": [
+                    {
+                      "type": "string",
+                      "default": "6696c5c28760e8ed4158c64f"
+                    }
+                  ],
+                  "publisher": {
+                    "type": "string",
+                    "default": "Pan Macmillan"
+                  },
+                  "website": {
+                    "type": "string",
+                    "default": "www.marvelmoody.com"
+                  },
+                  "twitter": {
+                    "type": "string",
+                    "default": "@moody"
+                  },
+                  "about": {
+                    "type": "string",
+                    "default": "Marvelous Moody is a very mad and moody writer."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Books"],
+        "description": "Get Books",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/authors/{authorId}": {
+      "get": {
+        "tags": ["Authors"],
+        "description": "Get an author by Id",
+        "parameters": [
+          {
+            "name": "authorId",
+            "in": "path",
+            "description": "The author Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Authors"],
+        "description": "Update an author by Id",
+        "parameters": [
+          {
+            "name": "authorId",
+            "in": "path",
+            "description": "The author Id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "default": "Mad Moody"
+                  },
+                  "books": [
+                    {
+                      "type": "string",
+                      "default": "6696c5c28760e8ed4158c64f"
+                    }
+                  ],
+                  "publisher": {
+                    "type": "string",
+                    "default": "Mad House Publications"
+                  },
+                  "website": {
+                    "type": "string",
+                    "default": "www.madmoody.com"
+                  },
+                  "twitter": {
+                    "type": "string",
+                    "default": "@moody"
+                  },
+                  "about": {
+                    "type": "string",
+                    "default": "Mad mood is a total nut job."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Authors"],
+        "description": "Delete an author by Id",
+        "parameters": [
+          {
+            "name": "authorId",
+            "in": "path",
+            "description": "The author Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          },
+          "509": {
+            "description": "Error"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "kitaab-fs-backend",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --coverage",
+    "dev": "node --env-file .env --watch server",
+    "start": "node server"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@vitest/coverage-v8": "^2.0.4",
+    "cors": "^2.8.5",
+    "prettier": "^3.3.3",
+    "swagger-ui-express": "^5.0.1",
+    "vitest": "^2.0.4"
+  }
+}

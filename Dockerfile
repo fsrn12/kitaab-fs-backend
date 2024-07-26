@@ -1,0 +1,19 @@
+FROM node:20
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+RUN npm i
+
+COPY . .
+
+EXPOSE 3001
+
+ENV NODE_ENV=production
+ENV PORT=3001
+ENV DATABASE=mongodb://192.168.0.6:27017
+ENV JWT_EXPIRES_IN=10
+ENV JWT_COOKIE_EXPIRES_IN=10
+ENV JWT_SECRET=b3BluNzC1rZXktjEAG5vmU9nZQFwd2b10fPEvAZ8AqlzlcZLJ4YdtUuFvoXHdpE4V4QU6CG7ujQmyA1Jq9iRa
+CMD [ "node", "server" ]
